@@ -7,7 +7,6 @@ import topicReducer from "./topicSlice";
 export const store = configureStore({
     reducer: {
         topic: topicReducer,
-
     }
 })
 
