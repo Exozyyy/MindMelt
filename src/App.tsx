@@ -2,7 +2,7 @@
 import './App.css'
 import Header from "./components/Header.tsx";
 import Topic from "./components/Topic.tsx";
-import Explain from "./components/ExplanationView.tsx";
+import ExplanationView from "./components/ExplanationView.tsx";
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <>
         <Header />
         <Topic />
-        <Explain />
+        <ExplanationView />
     </>
   )
 }

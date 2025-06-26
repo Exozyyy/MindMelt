@@ -1,10 +1,17 @@
-import {useState} from "react";
-const Explain = () => {
+import { useAppSelector } from "../redux/Hooks";
+
+const ExplanationView = () => {
+    const explanation = useAppSelector((state) => state.topic.explanation);
+    const status = useAppSelector((state) => state.topic.status);
+
+    if (status === 'loading') return <p>Подгружаем, не скучай...</p>;
+    if (status === 'failed') return <p>Что-то пошло не так :(</p>;
+
     return (
-        <div className="Explain-container">
-            <h2 className="text-2xl font-bold mb-4">Объяснение</h2>
-            <p className="text-gray-600">Здесь будет объяснение темы.</p>
+        <div className="explanation-container">
+            <h2 className="text-xl font-bold">Объяснение</h2>
+                {explanation && <p>{explanation.explanation}</p>}
         </div>
-    )
-}
-export default Explain;
+    );
+};
+export default ExplanationView;

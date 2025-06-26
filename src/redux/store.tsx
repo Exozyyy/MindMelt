@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import type { Action, ThunkAction} from "@reduxjs/toolkit";
 import {type TypedUseSelectorHook, useSelector} from "react-redux";
+import topicReducer from "./topicSlice";
 
 
 export const store = configureStore({
