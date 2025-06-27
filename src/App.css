@@ -1,10 +1,80 @@
 #root {
-  max-width: 1280px;
+  max-width: 900px;
   margin: 0 auto;
-  text-align: center;
-  padding: 2rem 2rem 1000px;
+  padding: 2rem 1.5rem 4rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  text-align: left;
+  box-sizing: border-box;
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
 }
 
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1rem;
+}
 
+.quiz-container {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
 
+.quiz-container:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
 
+.quiz-container ol,
+.quiz-container ul {
+  padding-left: 1.5rem;
+}
+
+.quiz-container li {
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.quiz-container p.font-semibold {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+.quiz-container ul li {
+  list-style-type: disc;
+  margin-bottom: 0.4rem;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.quiz-container ul li:hover {
+  color: #0070f3;
+}
+
+p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.explanation-container {
+  background-color: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.explanation-container:hover {
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12);
+}

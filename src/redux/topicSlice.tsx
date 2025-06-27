@@ -1,41 +1,27 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {API_URL} from "../config.ts";
+import {postTopicData} from "../api/topicApi.tsx"
+import type {TopicData} from '../types/types';
 
 export const fetchTopic = createAsyncThunk(
     "topic/fetchTopic",
     async (topic: string) => {
-        const response = await fetch(`${API_URL}explain-topic`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ topic })
-        });
-
-        if (!response.ok) {
-            throw new Error("Failed to fetch topic");
-        }
-        const data = await response.json();
-        return data;
+        return await postTopicData<TopicData>(topic);
     }
 );
 
-interface ExplanationData {
-    explanation: string;
-    test_case: string;
-}
-
-interface TopicState {
+interface ExplanationState {
     value: string;
-    explanation: ExplanationData | null;
+    explanation: TopicData | null;
+    test_cases?: TopicData["test_cases"];
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | null;
 }
-const initialState: TopicState = {
+const initialState: ExplanationState  = {
     value: "",
     explanation: null,
     status: 'idle',
     error: null,
+    test_cases: undefined
 };
 
 
@@ -58,6 +44,7 @@ const topicSlice = createSlice({
                 .addCase(fetchTopic.fulfilled, (state, action) => {
                     state.status = 'succeeded';
                     state.explanation = action.payload;
+                    state.test_cases = action.payload.test_cases;
                 })
                 .addCase(fetchTopic.rejected, (state) => {
                     state.status = 'failed';
