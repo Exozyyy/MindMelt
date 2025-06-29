@@ -1,5 +1,5 @@
-import { useAppSelector } from "../redux/Hooks";
-import Quiz from "./Quiz";
+import { useAppSelector } from "../../shared/lib/hooks/Hooks.tsx";
+import Quiz from "../../features/quiz/ui/Quiz.tsx";
 
 const ExplanationView = () => {
     const explanation = useAppSelector((state) => state.topic.explanation);

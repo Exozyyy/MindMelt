@@ -1,5 +1,5 @@
-import {setTopic, clearTopic, fetchTopic} from "../redux/topicSlice";
-import { useAppDispatch, useAppSelector } from "../redux/Hooks.tsx";
+import {setTopic, clearTopic, fetchTopic} from "../model/topicSlice.tsx";
+import { useAppDispatch, useAppSelector } from "../../../shared/lib/hooks/Hooks.tsx";
 import * as React from "react";
 
 

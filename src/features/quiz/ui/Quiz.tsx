@@ -1,4 +1,4 @@
-import { useAppSelector } from "../redux/Hooks";
+import { useAppSelector } from "../../../shared/lib/hooks/Hooks.tsx";
 
 const Quiz = () => {
     const quiz = useAppSelector((state) => state.topic.test_cases);
@@ -6,6 +6,19 @@ const Quiz = () => {
 
     if (status === "loading") return <p>Подгружаем вопросы, не скучай...</p>;
     if (status === "failed") return <p>Что-то пошло не так :(</p>;
+
+    const checkAnswer = (questionIndex: number, optionIndex: number) => {
+        // @ts-ignore
+        const correctAnswer = quiz[questionIndex].correct_answer || undefined
+        const userAnswer = String.fromCharCode(65 + optionIndex);
+        if (userAnswer === correctAnswer) {
+            alert("Правильно");
+        } else {
+            alert(`Неправильно, Правильный ответ: ${correctAnswer}`);
+        }
+
+    }
+    console.log(quiz)
 
     return (
         <div className="quiz-container max-w-3xl mx-auto p-4">
@@ -17,7 +30,14 @@ const Quiz = () => {
                             <p className="font-semibold mb-2">{question}</p>
                             <ul className="ml-6 list-disc space-y-1">
                                 {options.map((option, i) => (
-                                    <li key={i}>{option}</li>
+                                    <li key={i}>
+                                        <button
+                                            onClick={() => checkAnswer(index, i)}
+                                            className="hover:underline hover:text-blue-600 transition-colors"
+                                        >
+                                            {option}
+                                        </button>
+                                    </li>
                                 ))}
                             </ul>
                         </li>

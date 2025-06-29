@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {postTopicData} from "../api/topicApi.tsx"
-import type {TopicData} from '../types/types';
+import {postTopicData} from "../../../features/quiz/model/topicApi.tsx"
+import type {TopicData} from '../../../shared/types/types.ts';
 
 export const fetchTopic = createAsyncThunk(
     "topic/fetchTopic",

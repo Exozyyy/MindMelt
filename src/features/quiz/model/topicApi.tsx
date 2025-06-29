@@ -1,4 +1,4 @@
-import { API_URL } from "../config";
+import { API_URL } from "../../../config.ts";
 
 export const postTopicData = async <T>(topic: string): Promise<T> => {
     const response = await fetch(`${API_URL}explain-topic`, {
